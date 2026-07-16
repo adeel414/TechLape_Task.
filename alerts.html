@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alerts • adminHMD</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css">
+</head><body>
+<div id="page">
+  <div class="page-head"><div class="icon"><i class="bi bi-exclamation-triangle"></i></div>
+    <div><div class="eyebrow">FEEDBACK</div><h1>Alerts</h1><p>Inline alerts and toast notifications.</p></div>
+  </div>
+  <div class="card-x">
+    <div class="alert alert-primary alert-dismissible fade show"><b>Info!</b> A new feature was added. <button class="btn-close" data-bs-dismiss="alert"></button></div>
+    <div class="alert alert-success alert-dismissible fade show"><b>Success!</b> Your changes were saved. <button class="btn-close" data-bs-dismiss="alert"></button></div>
+    <div class="alert alert-warning alert-dismissible fade show"><b>Warning!</b> Storage almost full. <button class="btn-close" data-bs-dismiss="alert"></button></div>
+    <div class="alert alert-danger alert-dismissible fade show"><b>Error!</b> Payment failed. <button class="btn-close" data-bs-dismiss="alert"></button></div>
+    <hr><h6 class="section-title mb-2"><i class="bi bi-bell"></i>Trigger a toast</h6>
+    <button class="btn btn-primary" onclick="showToast('Info','Just a notification.','primary')">Info</button>
+    <button class="btn btn-success" onclick="showToast('Success','Item saved.','success')">Success</button>
+    <button class="btn btn-danger" onclick="showToast('Error','Something went wrong.','danger')">Error</button>
+  </div>
+</div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3" id="tc"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/layout.js"></script>
+<script>renderLayout('alerts.html');
+function showToast(t,m,v){const el=document.createElement('div');el.className=`toast text-bg-${v}`;el.innerHTML=`<div class="toast-header"><b class="me-auto">${t}</b><button class="btn-close" data-bs-dismiss="toast"></button></div><div class="toast-body">${m}</div>`;document.getElementById('tc').appendChild(el);new bootstrap.Toast(el,{delay:3000}).show();}
+</script></body></html>
